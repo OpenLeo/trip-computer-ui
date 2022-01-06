@@ -1,0 +1,3 @@
+title=TripComputer
+author=ptx
+orientation=landscape

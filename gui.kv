@@ -1,0 +1,108 @@
+<RootWidget>:
+    cols: 1
+	FloatLayout:
+        id: base
+		# Background color
+		canvas.before:
+			Color:
+				rgba: 0.145, 0.145, 0.145, 1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+		# Main layout (header+content)
+		BoxLayout:
+			orientation: 'vertical'
+
+			# Header (date, temperature, maybe current track)
+			BoxLayout:
+				canvas.before:
+					Color:
+						rgba: 0, 0, 0, 1
+					Rectangle:
+						pos: self.pos
+						size: self.size
+				orientation: 'horizontal'
+				size_hint: 1, 0.15
+
+				# Date and time
+				AnchorLayout:
+					anchor_x: 'left'
+					size_hint: 0.75, 1
+					Label:
+						id: time
+						font_name: 'data/fonts/Roboto-Bold.ttf'
+						font_size: 32
+						text: ''
+
+				# Center text info (like, music infos)
+				AnchorLayout:
+					anchor_x: 'center'
+					Label:
+						text_size: self.size
+						halign: 'center'
+						valign: 'middle'
+						font_name: 'data/fonts/Roboto-Bold.ttf'
+						font_size: 28
+						text: ''
+
+				# Outside temperature info
+				AnchorLayout:
+					anchor_x: 'right'
+					size_hint: 0.2, 1
+					Label:
+						id: temperature
+						font_name: 'data/fonts/Roboto-Bold.ttf'
+						font_size: 32
+						text: ''
+
+
+			# Content
+			BoxLayout:
+				orientation: 'horizontal'
+
+				# Additional infos
+				BoxLayout:
+					orientation: 'vertical'
+					size_hint: 0.6, 1
+					InfoLabel:
+						id: title
+						text: 'test'
+
+				# Driving infos
+				BoxLayout:
+					canvas.before:
+						Color:
+							rgba: 1,1,1,1
+						Line:
+							width: 5
+							points: self.x, self.y, self.x, self.y+self.height-5
+					orientation: 'vertical'
+					size_hint: 0.4, 1
+					FloatLayout:
+
+					# Instant fuel consumption
+					BoxLayout:
+						size_hint: 1, 0.5
+						orienation: 'horizontal'
+						Image:
+							size_hint: 0.6, 0.9
+							source: 'data/img/jerrycan.png'
+						InfoLabel:
+							id: conso
+
+					# Remaining range with current fuel level
+					BoxLayout:
+						size_hint: 1, 0.5
+						orientation: 'horizontal'
+						Image:
+							size_hint: 0.6, 0.9
+							source: 'data/img/pump.png'
+						InfoLabel:
+							id: autonomy
+
+## Templates
+<InfoLabel@Label>:
+    font_name: 'data/fonts/Roboto-Bold.ttf'
+    font_size: 42
+    text: ''

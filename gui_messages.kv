@@ -1,0 +1,17 @@
+# Notifications
+AnchorLayout:
+	id: messagebox
+	canvas.before:
+		Color:
+			rgba: 0.1,0.1,0.1,0.85
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	anchor_y: 'center'
+	anchor_x: 'center'
+	size_hint: 1, 0.1
+	opacity: 0
+	InfoLabel:
+		id: message
+		text: 'welcome'
+
