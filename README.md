@@ -1,4 +1,4 @@
-# Trip Computer UI
+# Trip Computer UI (Come discuss about it on our [Discord](https://discord.gg/6cJKP8McKW)!)
 
 ![preview image](.github/preview.jpg?raw=true)
 
